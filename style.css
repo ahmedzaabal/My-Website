@@ -248,14 +248,14 @@ footer {
     left: 2px;
     text-shadow: -1px 0 #ff00c1;
     clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim 5s infinite linear alternate-reverse;
+    animation: glitch-anim 0.5s infinite linear alternate-reverse, glitch-hide 1s step-end forwards;
 }
 
 .glitch::after {
     left: -2px;
     text-shadow: -1px 0 #00fff9;
     clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim2 5s infinite linear alternate-reverse;
+    animation: glitch-anim2 0.5s infinite linear alternate-reverse, glitch-hide 1s step-end forwards;
 }
 
 @keyframes glitch-anim {
@@ -446,5 +446,12 @@ footer {
 
     50% {
         opacity: 0;
+    }
+}
+
+@keyframes glitch-hide {
+    to {
+        opacity: 0;
+        visibility: hidden;
     }
 }
