@@ -1,0 +1,450 @@
+:root {
+    --neon-pink: #ff00ff;
+    --neon-cyan: #00ffff;
+    --bg-color: #050505;
+    --card-bg: rgba(20, 20, 20, 0.8);
+    --text-main: #e0e0e0;
+    --text-dim: #888;
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+    --border-width: 2px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Scanlines Overlay */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.2));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.6;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 4rem;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--neon-pink);
+    letter-spacing: 4px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--neon-pink);
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--neon-pink);
+    display: inline-block;
+    padding-right: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--neon-pink);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0, 100% 0);
+    /* Square for now, will angle */
+}
+
+/* Sections */
+.cyber-section {
+    margin-bottom: 5rem;
+}
+
+/* Cyber Card Styling */
+.cyber-card {
+    background: var(--card-bg);
+    border: 1px solid var(--neon-cyan);
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    clip-path: polygon(0 0,
+            100% 0,
+            100% calc(100% - 20px),
+            calc(100% - 20px) 100%,
+            0 100%);
+    border-left: 2px solid var(--neon-pink);
+}
+
+/* To fake the border on the clipped part, we can use a pseudo element or just leave it as a "cut" look. 
+   For a simple glowing border effect with clip-path, it's tricky without a wrapper. 
+   Let's stick to a clean cut look with a side accent.
+*/
+
+.cyber-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+    border-color: var(--neon-pink);
+    background: rgba(30, 30, 30, 0.9);
+}
+
+.cyber-card h3 {
+    color: var(--neon-cyan);
+    margin-bottom: 0.5rem;
+}
+
+.cyber-card .company,
+.cyber-card .description {
+    color: var(--text-main);
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    min-height: 80vh;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    /* Allow wrapping on small screens */
+}
+
+.profile-glitch-container {
+    width: 300px;
+    max-width: 100%;
+    /* Responsive width */
+    aspect-ratio: 1 / 1;
+    /* Keep square aspect ratio */
+    height: auto;
+    /* Allow height to adjust based on width */
+    border: 2px solid var(--neon-pink);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 0, 255, 0.1);
+}
+
+.glitch-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--neon-pink);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    overflow: hidden;
+    /* Ensure image stays within bounds */
+    position: relative;
+}
+
+.glitch-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Clean look, just the shadow */
+    box-shadow: 5px 5px 0px var(--neon-cyan), -5px -5px 0px var(--neon-pink);
+    transition: all 0.3s ease;
+}
+
+.glitch-image-placeholder:hover img {
+    transform: scale(1.02);
+}
+
+/* Certificates Grid */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Contact */
+.highlight {
+    color: var(--neon-cyan);
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid #333;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Glitch Animation */
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 #00fff9;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(30px, 9999px, 10px, 0);
+    }
+
+    5% {
+        clip: rect(80px, 9999px, 90px, 0);
+    }
+
+    10% {
+        clip: rect(10px, 9999px, 40px, 0);
+    }
+
+    15% {
+        clip: rect(60px, 9999px, 20px, 0);
+    }
+
+    20% {
+        clip: rect(20px, 9999px, 70px, 0);
+    }
+
+    25% {
+        clip: rect(90px, 9999px, 10px, 0);
+    }
+
+    30% {
+        clip: rect(10px, 9999px, 50px, 0);
+    }
+
+    35% {
+        clip: rect(50px, 9999px, 20px, 0);
+    }
+
+    40% {
+        clip: rect(20px, 9999px, 60px, 0);
+    }
+
+    45% {
+        clip: rect(70px, 9999px, 30px, 0);
+    }
+
+    50% {
+        clip: rect(30px, 9999px, 80px, 0);
+    }
+
+    55% {
+        clip: rect(80px, 9999px, 10px, 0);
+    }
+
+    60% {
+        clip: rect(10px, 9999px, 40px, 0);
+    }
+
+    65% {
+        clip: rect(50px, 9999px, 90px, 0);
+    }
+
+    70% {
+        clip: rect(90px, 9999px, 20px, 0);
+    }
+
+    75% {
+        clip: rect(20px, 9999px, 60px, 0);
+    }
+
+    80% {
+        clip: rect(60px, 9999px, 10px, 0);
+    }
+
+    85% {
+        clip: rect(10px, 9999px, 50px, 0);
+    }
+
+    90% {
+        clip: rect(50px, 9999px, 30px, 0);
+    }
+
+    95% {
+        clip: rect(30px, 9999px, 70px, 0);
+    }
+
+    100% {
+        clip: rect(70px, 9999px, 10px, 0);
+    }
+}
+
+@keyframes glitch-anim2 {
+    0% {
+        clip: rect(10px, 9999px, 80px, 0);
+    }
+
+    5% {
+        clip: rect(60px, 9999px, 10px, 0);
+    }
+
+    10% {
+        clip: rect(20px, 9999px, 50px, 0);
+    }
+
+    15% {
+        clip: rect(90px, 9999px, 30px, 0);
+    }
+
+    20% {
+        clip: rect(30px, 9999px, 60px, 0);
+    }
+
+    25% {
+        clip: rect(70px, 9999px, 20px, 0);
+    }
+
+    30% {
+        clip: rect(20px, 9999px, 90px, 0);
+    }
+
+    35% {
+        clip: rect(80px, 9999px, 40px, 0);
+    }
+
+    40% {
+        clip: rect(40px, 9999px, 10px, 0);
+    }
+
+    45% {
+        clip: rect(10px, 9999px, 70px, 0);
+    }
+
+    50% {
+        clip: rect(50px, 9999px, 20px, 0);
+    }
+
+    55% {
+        clip: rect(20px, 9999px, 80px, 0);
+    }
+
+    60% {
+        clip: rect(80px, 9999px, 30px, 0);
+    }
+
+    65% {
+        clip: rect(30px, 9999px, 60px, 0);
+    }
+
+    70% {
+        clip: rect(60px, 9999px, 10px, 0);
+    }
+
+    75% {
+        clip: rect(10px, 9999px, 50px, 0);
+    }
+
+    80% {
+        clip: rect(50px, 9999px, 20px, 0);
+    }
+
+    85% {
+        clip: rect(20px, 9999px, 90px, 0);
+    }
+
+    90% {
+        clip: rect(90px, 9999px, 40px, 0);
+    }
+
+    95% {
+        clip: rect(40px, 9999px, 10px, 0);
+    }
+
+    100% {
+        clip: rect(10px, 9999px, 60px, 0);
+    }
+}
+
+/* Blinking Cursor */
+.blinking-cursor {
+    animation: blink 1s step-end infinite;
+    color: var(--neon-pink);
+    font-weight: bold;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
