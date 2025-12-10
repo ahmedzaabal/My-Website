@@ -226,6 +226,11 @@ footer {
     h1 {
         font-size: 2.5rem;
     }
+
+    .section-title {
+        font-size: 1.5rem;
+        padding-right: 1.5rem;
+    }
 }
 
 /* Glitch Animation */
