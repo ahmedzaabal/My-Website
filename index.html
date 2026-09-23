@@ -7,6 +7,9 @@
     <title>Ahmed Adel's Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
+        crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
         rel="stylesheet">
@@ -15,22 +18,53 @@
 
 <body>
     <div class="scanlines"></div>
+    <div class="cursor-glow"></div>
     <div class="app-container">
+        <nav class="site-nav" aria-label="Main navigation">
+            <a class="nav-brand" href="#top">AA<span>_</span></a>
+            <div class="nav-links">
+                <a href="#position">POSITION</a>
+                <a href="#certificates">CERTS</a>
+                <a href="#projects">PROJECTS</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" aria-label="Cycle color theme">THEME</button>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation menu">☰</button>
+            </div>
+        </nav>
+
+        <div class="theme-switcher" aria-label="Choose color theme">
+            <button type="button" data-theme="cyber">CYBER</button>
+            <button type="button" data-theme="ibm">IBM</button>
+            <button type="button" data-theme="matrix">MATRIX</button>
+        </div>
+
+        <div id="top" class="hero-grid" aria-hidden="true"></div>
         <header class="hero-section">
             <div class="profile-glitch-container">
                 <!-- Placeholder for photo -->
                 <div class="glitch-image-placeholder" data-text="PROFILE_IMG">
-                    <img src="WhatsApp Image 2026-02-08 at 2.11.38 PM.jpeg" alt="Profile">
+                    <picture>
+                        <source srcset="profile.webp" type="image/webp">
+                        <img src="WhatsApp Image 2026-02-08 at 2.11.38 PM.jpeg" alt="Profile" width="960" height="1280">
+                    </picture>
                 </div>
             </div>
             <div class="hero-text">
                 <h1 class="glitch" data-text="YOUR NAME">Ahmed Adel</h1>
                 <p class="subtitle">AIX/UNIXEngineer @ IBM</p>
+                <p class="hero-intro">Cloud-minded engineer building reliable systems and sharp digital experiences.</p>
+                <div class="hero-actions">
+                    <a class="neon-button" href="#projects">VIEW PROJECTS</a>
+                    <a class="neon-button" href="cv.pdf" download="Ahmed-Adel-CV.pdf">DOWNLOAD CV ↓</a>
+                    <a class="neon-button secondary" href="mailto:ahmed.zaabal@proton.me">SEND MESSAGE</a>
+                </div>
             </div>
         </header>
 
         <main>
-            <section id="position" class="cyber-section">
+            <section id="position" class="cyber-section reveal">
                 <h2 class="section-title">Tech Savvy | Cloud Computing and DevOps Enthusiast</h2>
                 <div class="cyber-card">
                     <div class="card-content">
@@ -50,72 +84,158 @@
                             resonate with client business needs.
                             <span class="blinking-cursor">_</span>
                         </p>
+                        <div class="skill-badges" aria-label="Technical skills">
+                            <span>AIX</span><span>UNIX</span><span>AWS</span><span>PYTHON</span><span>BASH/KSH</span><span>DOCKER</span><span>KUBERNETES</span>
+                        </div>
+                        <div class="skills-matrix" aria-label="Skills matrix">
+                            <div class="skill-group">
+                                <h4>CLOUD & NETWORKING</h4>
+                                <p>AWS · S3 · VPC · EC2 · CloudWatch · Microsoft Azure · IBM Cloud</p>
+                            </div>
+                            <div class="skill-group">
+                                <h4>SYSTEMS</h4>
+                                <p>IBM AIX · Linux/UNIX · VIOS · LVM · Storage · Virtualization</p>
+                            </div>
+                            <div class="skill-group">
+                                <h4>AUTOMATION & DEVELOPMENT</h4>
+                                <p>Python · Bash/KSH scripting · C/C++ · Git · Vagrant</p>
+                            </div>
+                            <div class="skill-group">
+                                <h4>CONTAINERS & OPERATIONS</h4>
+                                <p>Docker · Kubernetes · Incident management · Troubleshooting · Root-cause analysis</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section id="certificates" class="cyber-section">
+            <section id="certificates" class="cyber-section reveal">
                 <h2 class="section-title">CERTIFICATES_DATABASE</h2>
+                <div class="certificate-intro">
+                    <p>Verified digital credentials hosted on Credly.</p>
+                    <a class="neon-button secondary" href="https://www.credly.com/users/ahmed-adel-fahmy" target="_blank" rel="noreferrer">
+                        VIEW ALL CREDENTIALS ↗
+                    </a>
+                </div>
                 <div class="certificates-grid">
                     <!-- Certificate Placeholders -->
-                    <div class="cyber-card certificate-card">
+                    <div class="cyber-card certificate-card" tabindex="0" data-details="IBM PowerVS cloud infrastructure and administration.">
                         <div class="card-content">
                             <h3>IBM PowerVS Technical Practitioner</h3>
                             <p>ISSUER_ID: IBM</p>
+                            <p class="certificate-details">IBM PowerVS cloud infrastructure and administration.</p>
                         </div>
                     </div>
-                    <div class="cyber-card certificate-card">
+                    <div class="cyber-card certificate-card" tabindex="0" data-details="Foundations of post-quantum cryptography and secure systems.">
                         <div class="card-content">
                             <h3>Practical Introduction to Quantum-Safe Cryptography</h3>
                             <p>ISSUER_ID: IBM</p>
+                            <p class="certificate-details">Foundations of post-quantum cryptography and secure systems.</p>
                         </div>
                     </div>
-                    <div class="cyber-card certificate-card">
+                    <div class="cyber-card certificate-card" tabindex="0" data-details="Scaling and democratizing AI models for practical use.">
                         <div class="card-content">
                             <h3>Democratizing AI Models at Scale</h3>
                             <p>ISSUER_ID: IBM</p>
+                            <p class="certificate-details">Scaling and democratizing AI models for practical use.</p>
                         </div>
                     </div>
-                    <div class="cyber-card certificate-card">
+                    <div class="cyber-card certificate-card" tabindex="0" data-details="Core AIX systems administration for UNIX specialists.">
                         <div class="card-content">
                             <h3>AIX Systems Administrator - Fundamentals for UNIX Specialists</h3>
                             <p>ISSUER_ID: IBM</p>
+                            <p class="certificate-details">Core AIX systems administration for UNIX specialists.</p>
                         </div>
                     </div>
-                    <div class="cyber-card certificate-card">
+                    <div class="cyber-card certificate-card" tabindex="0" data-details="Professional support practices for Power development software.">
                         <div class="card-content">
                             <h3>Power Development Software Support Professional</h3>
                             <p>ISSUER_ID: IBM</p>
+                            <p class="certificate-details">Professional support practices for Power development software.</p>
                         </div>
                     </div>
-                    <div class="cyber-card certificate-card">
+                    <div class="cyber-card certificate-card" tabindex="0" data-details="Korn and Bash scripting for automation and operations.">
                         <div class="card-content">
                             <h3>Korn and Bash Shell Scripting Specialist</h3>
                             <p>ISSUER_ID: IBM</p>
+                            <p class="certificate-details">Korn and Bash scripting for automation and operations.</p>
                         </div>
                     </div>
-                    <div class="cyber-card certificate-card">
+                    <div class="cyber-card certificate-card" tabindex="0" data-details="Experienced-level AIX systems administration.">
                         <div class="card-content">
                             <h3>AIX Systems Administrator - Experienced</h3>
                             <p>ISSUER_ID: IBM</p>
+                            <p class="certificate-details">Experienced-level AIX systems administration.</p>
                         </div>
                     </div>
-                    <div class="cyber-card certificate-card">
+                    <div class="cyber-card certificate-card" tabindex="0" data-details="LPAR configuration and planning on IBM Power Systems.">
                         <div class="card-content">
                             <h3>Power Systems for AIX I: LPAR Configuration and Planning</h3>
                             <p>ISSUER_ID: IBM</p>
+                            <p class="certificate-details">LPAR configuration and planning on IBM Power Systems.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="contact" class="cyber-section">
+            <section id="projects" class="cyber-section reveal">
+                <h2 class="section-title">PROJECTS_DATABASE</h2>
+                <div class="projects-grid">
+                    <a class="cyber-card project-card project-s3" href="https://github.com/ahmedzaabal/Website-Hosting-Using-S3" target="_blank" rel="noreferrer">
+                        <div class="card-content">
+                            <div class="project-preview"><span>&lt;S3 / DEPLOY&gt;</span></div>
+                            <span class="project-tag">AWS / S3</span>
+                            <h3>Website Hosting Using S3</h3>
+                            <p>Deployed a static website to Amazon S3 using a serverless architecture with object storage as the hosting layer. The workflow covers bucket-based content delivery, public access configuration, and repeatable website deployment.</p>
+                            <ul class="project-details">
+                                <li><strong>SERVICES:</strong> Amazon S3</li>
+                                <li><strong>ARCHITECTURE:</strong> Static, serverless hosting</li>
+                                <li><strong>DEPLOYMENT:</strong> Upload and publish website assets</li>
+                            </ul>
+                            <div class="tech-badges"><span>AWS</span><span>S3</span><span>HTML</span></div>
+                            <span class="project-link">OPEN_REPOSITORY →</span>
+                        </div>
+                    </a>
+
+                    <a class="cyber-card project-card project-vpc" href="https://github.com/ahmedzaabal/VPC-Peering-Log-Monitoring" target="_blank" rel="noreferrer">
+                        <div class="card-content">
+                            <div class="project-preview"><span>&lt;VPC / MONITORING&gt;</span></div>
+                            <span class="project-tag">AWS / NETWORKING</span>
+                            <h3>VPC Peering Log Monitoring</h3>
+                            <p>Built a two-VPC network topology with peering, subnets, route tables, network ACLs, internet gateways, and EC2 instances to test cross-network connectivity and inspect traffic behavior.</p>
+                            <ul class="project-details">
+                                <li><strong>SERVICES:</strong> Amazon VPC, EC2, VPC Flow Logs</li>
+                                <li><strong>SECURITY:</strong> Route tables, security groups, network ACLs</li>
+                                <li><strong>MONITORING:</strong> Capture, inspect, and analyze flow-log records</li>
+                            </ul>
+                            <div class="tech-badges"><span>VPC</span><span>FLOW LOGS</span><span>EC2</span></div>
+                            <span class="project-link">OPEN_REPOSITORY →</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section id="github" class="cyber-section reveal github-section">
+                <h2 class="section-title">GITHUB_ACTIVITY</h2>
+                <div class="github-dashboard cyber-card">
+                    <div class="activity-stat"><strong>02</strong><span>PUBLIC PROJECTS</span></div>
+                    <div class="activity-stat"><strong>08</strong><span>IBM CERTIFICATES</span></div>
+                    <div class="activity-stat"><strong>24/7</strong><span>SYSTEM MINDSET</span></div>
+                    <a class="neon-button" href="https://github.com/ahmedzaabal" target="_blank" rel="noreferrer">OPEN GITHUB ↗</a>
+                </div>
+            </section>
+
+            <section id="contact" class="cyber-section reveal">
                 <h2 class="section-title">ESTABLISH_UPLINK</h2>
                 <div class="cyber-card contact-card">
                     <div class="card-content">
-                        <p>EMAIL: <span class="highlight">ahmed.zaabal@proton.me</span></p>
-                        <p>LINKEDIN: <span class="highlight">https://www.linkedin.com/in/ahmedhedia/</span></p>
-                        <p>GITHUB: <span class="highlight">https://github.com/ahmedzaabal</span></p>
+                        <p>EMAIL: <a class="highlight" href="mailto:ahmed.zaabal@proton.me">ahmed.zaabal@proton.me</a></p>
+                        <p>LINKEDIN: <a class="highlight" href="https://www.linkedin.com/in/ahmedhedia/" target="_blank" rel="noreferrer">/in/ahmedhedia</a></p>
+                        <p>GITHUB: <a class="highlight" href="https://github.com/ahmedzaabal" target="_blank" rel="noreferrer">/ahmedzaabal</a></p>
+                        <div class="contact-actions">
+                            <a class="neon-button" href="mailto:ahmed.zaabal@proton.me">SEND EMAIL</a>
+                            <a class="neon-button secondary" href="https://www.linkedin.com/in/ahmedhedia/" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
+                        </div>
                     </div>
                 </div>
             </section>
