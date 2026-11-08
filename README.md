@@ -1,4 +1,4 @@
-# Ahmed Adel — Portfolio
+# Ahmed Adel Fahmy — Portfolio
 
 A responsive personal portfolio built with plain HTML, CSS, and JavaScript. It follows the system color preference by default and remembers a manually selected light or night mode.
 
