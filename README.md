@@ -1,27 +1,17 @@
-# 🔮 Cyberpunk Portfolio
-> *I designed this portfolio to be a modern, cyberpunk-inspired interface for showcasing my skills and experiences.*
+# Ahmed Adel — Portfolio
 
+A responsive personal portfolio built with plain HTML, CSS, and JavaScript. It follows the system color preference by default and remembers a manually selected light or night mode.
 
-## 🛠️ Tech Stack
-- **KEEP IT SIMPLE**
-- **Core:** HTML5, CSS3, JavaScript (ES6+)
-- **Fonts:** Orbitron & Rajdhani (via Google Fonts)
-- **Icons:** None (Pure CSS shapes)
+## Files
 
-## 📂 Structure
-```
-.
-├── index.html      # Main interface
-├── style.css       # Visual systems & animations
-├── script.js       # Logic & typing effects
-└── assets/         # Binary data (images)
-```
+- `index.html` — Portfolio content and page structure
+- `style.css` — Layout, typography, and responsive styles
+- `script.js` — Mobile navigation and theme preferences
+- `profile.webp` — Profile photo
+- `cv.pdf` — Downloadable CV
 
-## 🚀 Deployment
-Zero build steps required.
-1. Clone repository.
-2. Open `index.html`.
-3. *Optional:* Deploy to GitHub Pages / Vercel / Netlify directly.
+## Run locally
 
----
-*© 2025 Ahmed Adel // System Online*
+Open `index.html` in a browser, or serve the project directory with any static file server.
+
+The site has no build step or package dependencies. It can be deployed to GitHub Pages or another static host.
